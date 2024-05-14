@@ -3,22 +3,19 @@ import React, { useState, useEffect } from "react";
 const MasterPrice = () => {
   const [flightOffers, setFlightOffers] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/fakedata.txt"); // fetch the text data
-        const jsonData = await response.json(); // convert the data into json
-        const { flightOffer } = jsonData;
-        setFlightOffers(flightOffer);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
+  const getSearchResult = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("/fakedata.txt"); // Fetch the text data
+      const jsonData = await response.json(); // Convert the data into JSON
+      const { flightOffer } = jsonData;
+      setFlightOffers(flightOffer);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
-    fetchData();
-  }, []);
   console.log(flightOffers);
-
   return (
     <div>
       <h1 className="text-3xl"> Master Price </h1>
@@ -31,7 +28,7 @@ const MasterPrice = () => {
 
       {/* form */}
       <div>
-        <form className="flight-search-form">
+        <form className="flight-search-form" onSubmit={getSearchResult}>
           <hr />
           <div className="my-3">
             <input type="text" placeholder="LHR" />
@@ -75,39 +72,42 @@ const MasterPrice = () => {
 
       {/* Flight data */}
       <div className="relative overflow-x-auto my-4">
+        { flightOffers.length >0 && <p> Data Parsed Successfully..! </p>  }
         <table className="w-full text-sm text-left ">
-          <thead className="text-xs uppercase bg-gray-700 text-gray-400">
-            <tr>
-              <th scope="col" className="px-6 py-3">
-                Flight
-              </th>
-              <th scope="col" className="px-6 py-3 ">
-                Air Craft
-              </th>
-              <th scope="col" className="px-6 py-3 ">
-                Class
-              </th>
-              <th scope="col" className="px-6 py-3 ">
-                Fare
-              </th>
-              <th scope="col" className="px-6 py-3 ">
-                Route
-              </th>
-              <th scope="col" className="px-6 py-3 ">
-                Departure
-              </th>
-              <th scope="col" className="px-6 py-3 ">
-                Arrival
-              </th>
+         <thead className="text-xs uppercase bg-gray-700 text-gray-400">
+  {flightOffers.length > 0 && (
+    <tr>
+      <th scope="col" className="px-6 py-3">
+        Flight
+      </th>
+      <th scope="col" className="px-6 py-3 ">
+        Air Craft
+      </th>
+      <th scope="col" className="px-6 py-3 ">
+        Class
+      </th>
+      <th scope="col" className="px-6 py-3 ">
+        Fare
+      </th>
+      <th scope="col" className="px-6 py-3 ">
+        Route
+      </th>
+      <th scope="col" className="px-6 py-3 ">
+        Departure
+      </th>
+      <th scope="col" className="px-6 py-3 ">
+        Arrival
+      </th>
+      <th scope="col" className="px-6 py-3">
+        Duration
+      </th>
+      <th scope="col" className="px-6 py-3">
+        Price
+      </th>
+    </tr>
+  )}
+</thead>
 
-              <th scope="col" className="px-6 py-3">
-                Duration
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Price
-              </th>
-            </tr>
-          </thead>
           <tbody>
             {flightOffers.map((data, index) => (
               <tr
@@ -189,9 +189,9 @@ const MasterPrice = () => {
                 <td className="px-6 py-4">{data.itineraries[0].duration}</td>
 
                 {/* price */}
-                <td className="px-6 py-4">
+                <td className="px-6 py-4 center flex-col ">
                   {data.price} <br />
-                  <button className="bg-green-600 p-3"> select </button>
+                  <button className="bg-blue-600 px-4 py-2 rounded-lg"> select </button>
                 </td>
               </tr>
             ))}
