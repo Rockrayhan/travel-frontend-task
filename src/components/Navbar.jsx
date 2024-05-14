@@ -9,7 +9,7 @@ const Navbar = () => {
           <div className="flex gap-5">
             <ActiveLink to="/dashboard"> Dashboard </ActiveLink>
             <ActiveLink to="/"> Master Price </ActiveLink>
-            <ActiveLink to="/custom"> Custom Price </ActiveLink>
+            <ActiveLink to="/custom-price"> Custom Price </ActiveLink>
             <ActiveLink to="/calender"> Calender </ActiveLink>
             <ActiveLink to="/reports"> Reports </ActiveLink>
           </div>

@@ -8,6 +8,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import MasterPrice from './pages/MasterPrice.jsx';
+import Dashboard from './pages/Dashboard.jsx';
+import CustomPrice from './pages/CustomPrice.jsx';
+import Calender from './pages/Calender.jsx';
+import Reports from './pages/Reports.jsx';
 
 
 
@@ -19,6 +23,22 @@ const router = createBrowserRouter([
       {
         path: "",
         element: <MasterPrice />,
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard />,
+      },
+      {
+        path: "/custom-price",
+        element: <CustomPrice/>,
+      },
+      {
+        path: "/calender",
+        element: <Calender />,
+      },
+      {
+        path: "/reports",
+        element: <Reports />,
       },
     ],
   },
