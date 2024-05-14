@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 
-const Home = () => {
+const MasterPrice = () => {
   const [flightOffers, setFlightOffers] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch("/fakedata.txt");
-        const jsonData = await response.json(); // Parse response as JSON
-        const { flightOffer } = jsonData; // Extract flightOffer array
-        setFlightOffers(flightOffer); // Set flightOffers state
+        const jsonData = await response.json();
+        const { flightOffer } = jsonData;
+        setFlightOffers(flightOffer);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -20,7 +20,57 @@ const Home = () => {
   console.log(flightOffers);
   return (
     <div className="container">
-      <div class="relative overflow-x-auto">
+      <h1 className="text-3xl"> Master Price </h1>
+
+      <div className="flex justify-center ">
+        <button className="border-2 border-blue-800 px-3">Round Trip</button>
+        <button className="bg-blue-800 px-4 text-white"> One Way </button>
+        <button className="border-2 border-blue-800 px-3"> Multi City </button>
+      </div>
+
+    {/* form */}
+    <div>
+    <form className="flight-search-form">
+      <hr />
+    <input type="text" placeholder="LHR"/>
+    <input type="text" placeholder="CDG"/>
+    <input type="date"/>
+    <input className="w-16" type="text" placeholder="Day-"/>
+    <input className="w-16" type="text" placeholder="Day+"/>
+    <input type="text" placeholder="Any time"/> 
+    <span> + </span>
+    <input type="text" name="ADT" />
+  <select name="">
+    <option> 1 </option>
+    <option> 2 </option>
+    <option> 3 </option>
+    <option> 4 </option>
+  </select> 
+
+  <span> +  </span>
+
+  <hr />  
+  <div className="flex justify-between">
+
+  <span><input name="extra_options" type="checkbox" /> Extra Options</span>
+
+  <span> 
+    Environment 
+    <input type="radio" name="environment" value="1"  />  Dummy
+    <input type="radio" name="environment" value="0"  />  PDT
+
+  </span>
+
+  <button className="bg-blue-800 rounded-md text-white p-4"> Search </button>
+  </div>
+  <hr />
+    </form>
+    </div>
+    
+
+
+      {/* Flight data */}
+      <div class="relative overflow-x-auto my-4">
         <table class="w-full text-sm text-left ">
           <thead class="text-xs uppercase bg-gray-700 text-gray-400">
             <tr>
@@ -121,16 +171,15 @@ const Home = () => {
 
                 {/* departure */}
                 <td class="px-6 py-4">
-                <div>{data.itineraries[0].segments[0].departure.at}</div>
-                <div>{data.itineraries[0].segments[1].departure.at}</div>
+                  <div>{data.itineraries[0].segments[0].departure.at}</div>
+                  <div>{data.itineraries[0].segments[1].departure.at}</div>
                 </td>
 
                 {/* arrival */}
                 <td class="px-6 py-4">
-                <div>{data.itineraries[0].segments[0].arrival.at}</div>
-                <div>{data.itineraries[0].segments[1].arrival.at}</div>
+                  <div>{data.itineraries[0].segments[0].arrival.at}</div>
+                  <div>{data.itineraries[0].segments[1].arrival.at}</div>
                 </td>
-
 
                 {/* duration */}
                 <td class="px-6 py-4">{data.itineraries[0].duration}</td>
@@ -149,4 +198,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default MasterPrice;
