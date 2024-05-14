@@ -1,5 +1,6 @@
 import React from "react";
-import ActiveLink from "./ActiveLink";
+import { Link } from "react-router-dom";
+
 
 const Navbar = () => {
   return (
@@ -7,11 +8,11 @@ const Navbar = () => {
       <nav className="container ">
         <div className="flex justify-between">
           <div className="flex gap-5">
-            <ActiveLink to="/dashboard"> Dashboard </ActiveLink>
-            <ActiveLink to="/"> Master Price </ActiveLink>
-            <ActiveLink to="/custom-price"> Custom Price </ActiveLink>
-            <ActiveLink to="/calender"> Calender </ActiveLink>
-            <ActiveLink to="/reports"> Reports </ActiveLink>
+            <Link to="#"> Dashboard </Link>
+            <Link to="/"> Master Price </Link>
+            <Link to="#"> Custom Price </Link>
+            <Link to="#"> Calender </Link>
+            <Link to="#"> Reports </Link>
           </div>
           <div className="flex gap-2">
             <span>

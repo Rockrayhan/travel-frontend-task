@@ -15,12 +15,16 @@
   }
 
   .active-link {
-    text-decoration: underline ;
-    
+    background-color: rgba(17, 17, 255, 0.775);
+    color: white;
 }
+
+
 
 .flight-search-form input , select{
   border: 1px solid black;
+  padding: 5px;
+  margin: 1px 5px 1px 5px;
 
 }
 
