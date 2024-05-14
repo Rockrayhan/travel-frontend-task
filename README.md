@@ -1,8 +1,29 @@
-# React + Vite
+# Site Live Link: https://travel-task-popular.netlify.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### To run this project:
+* Clone This Repository
+* go to project directory and use command : `npm install` & ` npm run dev `
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Two Live Projects Front-end Projects: 
+* https://dragon-news-66a6e.web.app/
+* https://ektu-khani-tech.netlify.app/
+
+
+### Two Best Git Repositories
+* https://github.com/Rockrayhan/e-learning-admin-react
+* https://github.com/Rockrayhan/travel-guru
+
+### Time Spend
+*  3 days (4-6 Hours per day)
+
+### best practices I've implemented in my code:
+* Used React Router v6 
+* Used Activelink for better User Experience
+* Used IsLoading to show loading while data is being fetched
+* Used Comment in complex parts of codes.
+
+
+
+
+

@@ -1,18 +1,21 @@
+/* tailwind imports */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
 
-/* styles.css */
+/* custom css */
 .container {
     @apply mx-auto max-w-screen-xl;
   }
 
-
 .center {
     @apply flex justify-center items-center;
   }
+
+
+  /* active link style */
 
   .active-link {
     background-color: rgba(17, 17, 255, 0.775);
@@ -20,7 +23,7 @@
 }
 
 
-
+/*  form  */
 .flight-search-form input , select{
   border: 1px solid black;
   padding: 5px;

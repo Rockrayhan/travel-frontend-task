@@ -2,9 +2,13 @@ import React, { useState } from "react";
 
 const OneWay = () => {
   const [flightOffers, setFlightOffers] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
 
   const getSearchResult = async (e) => {
     e.preventDefault();
+    setIsLoading(true); // Set loading state to true
+
     try {
       const response = await fetch("/fakedata.txt"); // Fetch the text data
       const jsonData = await response.json(); // Convert the data into JSON
@@ -12,6 +16,9 @@ const OneWay = () => {
       setFlightOffers(flightOffer);
     } catch (error) {
       console.error("Error fetching data:", error);
+    }
+    finally {
+      setIsLoading(false); // Set loading state to false when fetching is done
     }
   };
 
@@ -23,9 +30,9 @@ const OneWay = () => {
         <form className="flight-search-form" onSubmit={getSearchResult}>
           <hr />
           <div className="my-3">
-            <input type="text" placeholder="LHR" />
-            <input type="text" placeholder="CDG" />
-            <input type="date" />
+            <input type="text" placeholder="LHR" required/>
+            <input type="text" placeholder="CDG"  required/>
+            <input type="date" required/>
 
             {/* showing dates dynamically using  spread operator */}
             <select className="px-3" name="day-plus">
@@ -85,6 +92,10 @@ const OneWay = () => {
           <hr />
         </form>
       </div>
+
+      {/* SHow loading while fetching */}
+      {isLoading && <p className="font-bold text-xl">Loading...</p>}
+
 
       {/* Flight data */}
       <div className="relative overflow-x-auto my-4">
@@ -208,8 +219,7 @@ const OneWay = () => {
                 <td className="px-6 py-4 center flex-col ">
                   {data.price} <br />
                   <button className="bg-blue-600 px-4 py-2 rounded-lg">
-                    {" "}
-                    select{" "}
+                    select
                   </button>
                 </td>
               </tr>
