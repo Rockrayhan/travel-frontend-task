@@ -1,11 +1,11 @@
-# Site Live Link: https://travel-task-popular.netlify.app/
+## Site Live Link: https://travel-task-popular.netlify.app/
 
 ### To run this project:
 * Clone This Repository
 * go to project directory and use command : `npm install` & ` npm run dev `
 
 
-### Two Live Projects Front-end Projects: 
+### Two Live Front-end Projects: 
 * https://dragon-news-66a6e.web.app/
 * https://ektu-khani-tech.netlify.app/
 
