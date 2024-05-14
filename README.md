@@ -21,7 +21,7 @@
 * Used React Router v6 
 * Used Activelink for better User Experience
 * Used IsLoading to show loading while data is being fetched
-* Used Comment in complex parts of codes.
+* Used Comment in complex parts of codes and for better understanding.
 
 
 
